@@ -2,7 +2,12 @@
 
 from user import User
 
+
 class Student(User):
-    
-    def learn(self):
-        pass
+
+    def __init__(self, first_name, last_name, knowledge=None):
+        super().__init__(first_name, last_name)
+        self.knowledge = knowledge if knowledge is not None else []
+
+    def learn(self, topic):
+        self.knowledge.append(topic)
